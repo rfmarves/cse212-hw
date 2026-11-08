@@ -9,7 +9,7 @@
 /// </summary>
 public class TakingTurnsQueue
 {
-    private readonly PersonQueue _people = new();
+    private PersonQueue _people = new();
 
     public int Length => _people.Length;
 
@@ -40,9 +40,11 @@ public class TakingTurnsQueue
         else
         {
             Person person = _people.Dequeue();
-            if (person.Turns > 1)
+            if (person.Turns > 1 || person.Turns <= 0)
             {
-                person.Turns -= 1;
+                if (person.Turns > 1) {
+                    person.Turns -= 1;
+                }
                 _people.Enqueue(person);
             }
 
