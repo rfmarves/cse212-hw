@@ -9,7 +9,8 @@ public class PriorityQueueTests
     // Scenario: Createa a queue with the following people and priorities: Bob (2), Tim (5), Sue (3), Peter (5) and
     // run until the queue is empty
     // Expected Result: Tim, Peter, Sue, Bob
-    // Defect(s) Found: 
+    // Defect(s) Found: Failed, item was not being removed from queue, so it
+    // same person was returned each time. Expected Tim but received Peter. 
     public void TestPriorityQueue_FiniteQueueOneRepeat()
     {
         var pq = new PriorityQueue();
@@ -37,7 +38,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: Try to get the next person from an empty queue
     // Expected Result: Exception should be thrown with appropriate error message
-    // Defect(s) Found: 
+    // Defect(s) Found: None.
     public void TestPriorityQueue_Empty()
     {
         var pq = new PriorityQueue();
@@ -58,7 +59,7 @@ public class PriorityQueueTests
     // Scenario: Createa a queue with the following people and priorities: Bob (1), Jane (1), Tim (2), Sue (3), Peter (4),
     // then, dequeue 2 people, then add Joe with priority 2, and Ann with priority 5, run until the queue is empty
     // Expected Result: Tim, Peter, Sue, Bob
-    // Defect(s) Found: 
+    // Defect(s) Found: None.
     public void TestPriorityQueue_FiveWithTwoRemoveTwoAdd()
     {
         var pq = new PriorityQueue();
